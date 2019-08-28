@@ -45,7 +45,7 @@ public class A1Novice {
 				total1 += total;
 			}
 			
-			System.out.println(name1.substring(0, 1) + ". " + name2 + ": " + total1);
+			System.out.println(name1.substring(0, 1) + ". " + name2 + ": " + String.format("%.2f", total1));
 		
 		}
 	}
