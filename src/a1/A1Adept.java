@@ -11,8 +11,13 @@ public class A1Adept {
 		// Your code follows here.
 		int items = n.nextInt();
 		
+		// creating a String array for each item in the store and another array 
+		// for the price of each item
+		
 		String[] name = new String[items];
 		double[] price = new double[items];
+		
+		// for loop places the items and their prices into the arrays
 		
 		for (int i = 0; i < items; i++) {
 			name[i] = n.next();
@@ -26,9 +31,14 @@ public class A1Adept {
 		double amount = 0;
 		String fruit = null;
 		
-		double total1 = 0;
-		double total2[] = new double[customers];
+		// creating a double array for the total price for each customer and
+		// a String array where each index is a customer to line up with the prices
+		
+		// double total1 = 0;
+		double[] total2 = new double[customers];
 		String[] people = new String[customers];
+		
+		// for loop used to place the customers into the people array
 		
 		for (int i = 0; i < customers; i++) {
 			firstName = n.next();
@@ -41,17 +51,23 @@ public class A1Adept {
 				amount = n.nextDouble();
 				fruit = n.next();
 								
+				// for loop used to total the full price for each customer
+				
 				for (int k = 0; k < items; k++) {
 					if (fruit.equals(name[k])) {
 						total += amount * price[k];
-//						total1 += total;
-						// System.out.println(total1);
 					}
 				}
 			}
+			
+			// placing each total price into the array of prices
+			
 			total2[i] = total;
 			
 		}
+		
+		// for loop used to find the index of the highest price and the customer
+		// that price correlates to
 		
 		double s = total2[0];
 		int index = 0;
@@ -61,7 +77,13 @@ public class A1Adept {
 				index = i;
 			}
 		}
+		
+		// prints the biggest price and the customer that price correlates to
+		
 		System.out.println("Biggest: " + people[index] + " (" + String.format("%.2f",s) + ")");
+		
+		// for loop used to find the index of the lowest price and the customer
+		// that price correlates to
 		
 		double t = total2[0];
 		int index1 = 0;
@@ -71,7 +93,12 @@ public class A1Adept {
 				index1 = i;
 			}
 		}
+		
+		// prints the smallest price and the customer that price correlates to
+		
 		System.out.println("Smallest: " + people[index1] + " (" + String.format("%.2f",t) + ")");
+		
+		// for loop used to total up all of the prices to find the average price
 		
 		double avg = 0;
 		for (int i = 0; i < total2.length; i++) {
@@ -79,7 +106,11 @@ public class A1Adept {
 		}
 		avg = avg / total2.length;
 		
+		// prints the average price
+		
 		System.out.println("Average: " + String.format("%.2f",avg));
+		
+		// All input parsed, so close scanner
 		
 		n.close();
 		
